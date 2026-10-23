@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 class CuentaBancaria(ABC):
 
     def __init__(self, titular, cbu, saldo_inicial=0):
-
         self.titular = titular
         self._cbu = cbu
         self.saldo = saldo_inicial
@@ -21,20 +20,15 @@ class CuentaBancaria(ABC):
 
     @saldo.setter
     def saldo(self, valor):
-
         if valor < self._saldo_minimo():
             raise ValueError("El saldo no puede ser negativo.")
-
         self._saldo = valor
 
 
     def depositar(self, monto):
-
         if monto <= 0:
             raise ValueError("El monto debe ser mayor a cero.")
-
         self.saldo = self.saldo + monto
-
         print(f"Depósito exitoso: ${monto}")
 
 
@@ -43,7 +37,6 @@ class CuentaBancaria(ABC):
         pass
 
     def __str__(self):
-
         return (
             f"[{self.__class__.__name__}] "
             f"Titular: {self.titular} | "
